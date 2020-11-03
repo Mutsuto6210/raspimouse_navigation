@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find raspimouse_navigation_3)/launch/run_amcl.launch" />
+  <arg name="map_file" default="$(find pimouse_navigation)/maps/map.yaml" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="screen" />
+</launch>

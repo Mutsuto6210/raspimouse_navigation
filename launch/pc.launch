@@ -1,0 +1,13 @@
+<launch>
+  <include file="$(find raspimouse_navigation_3)/launch/run_move_base.launch" />
+  <include file="$(find raspimouse_navigation_3)/launch/run_amcl.launch" />
+  <arg name="map_file" default="$(find pimouse_navigation)/maps/ken.yaml" />
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="screen"/>
+
+<!--
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="false">
+      <param name="frame_id" value="odom" />
+  </node>
+-->
+</launch>
